@@ -337,6 +337,40 @@ footer strong { color: rgba(255,255,255,.8); }
   .stat-item:last-child { border-bottom: none; }
   .privacy-box { padding: 24px 20px; }
 }
+
+/* TEACHER SECTION */
+.teacher-section { background: var(--cream); padding: 80px 0; }
+.teacher-inner {
+  max-width: 900px; margin: 0 auto; padding: 0 24px;
+  display: flex; gap: 60px; align-items: center;
+}
+.teacher-photo {
+  flex-shrink: 0;
+  width: 280px; height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(26,31,110,.15);
+}
+.teacher-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+}
+.teacher-info { flex: 1; }
+.teacher-info .section-tag { margin-bottom: 12px; }
+.teacher-info h2 { font-family: 'Unbounded', sans-serif; font-size: 32px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.teacher-info .teacher-role { font-size: 16px; color: var(--red); font-weight: 600; margin-bottom: 20px; }
+.teacher-info p { font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
+.teacher-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.teacher-badge {
+  background: var(--white); border: 1px solid #E0DDD8;
+  border-radius: 30px; padding: 8px 16px;
+  font-size: 14px; color: var(--text); font-weight: 500;
+}
+@media (max-width: 700px) {
+  .teacher-inner { flex-direction: column; gap: 32px; }
+  .teacher-photo { width: 100%; height: 320px; }
+}
+
 </style>
 </head>
 <body>
@@ -480,6 +514,28 @@ footer strong { color: rgba(255,255,255,.8); }
           <h3>Начинаем заниматься</h3>
           <p>Оплата перед началом месяца или пакетом уроков. Занятия проходят по согласованному расписанию в Праге или онлайн.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHER -->
+<section class="teacher-section">
+  <div class="teacher-inner">
+    <div class="teacher-photo">
+      <img src="taras.png" alt="Тарас Ветер — основатель Menta School" />
+    </div>
+    <div class="teacher-info">
+      <div class="section-tag">Преподаватель</div>
+      <h2>Тарас Ветер</h2>
+      <div class="teacher-role">Основатель и главный преподаватель</div>
+      <p>Помогает детям из русскоязычных и украиноязычных семей успешно поступить в гимназии и университеты Праги. Готовит к přijímačky, maturita и вступительным экзаменам.</p>
+      <p>Индивидуальный подход к каждому ученику — от оценки знаний до финального результата.</p>
+      <div class="teacher-badges">
+        <span class="teacher-badge">🎓 Опыт 3+ года</span>
+        <span class="teacher-badge">📍 Прага</span>
+        <span class="teacher-badge">87% поступают с первого раза</span>
+        <span class="teacher-badge">🇨🇿 Чешский язык</span>
       </div>
     </div>
   </div>
