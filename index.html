@@ -355,7 +355,7 @@ footer strong { color: rgba(255,255,255,.8); }
   <div class="hero-inner">
     <div class="hero-tag">Прага · Подготовка к поступлению</div>
     <h1>Ваш ребёнок поступит туда, <span>куда хочет</span></h1>
-    <p>Menta School готовит детей из русскоязычных и украиноязычных семей к přijímačky, maturita и поступлению в гимназии и университеты Праги.</p>
+    <p>Menta School готовит детей из русскоязычных и украиноязычных семей к přijímačkám, maturita и поступлению в гимназии и университеты Праги.</p>
     <div class="hero-btns">
       <a class="btn-primary" href="#consult">Записаться на консультацию</a>
       <a class="btn-secondary" href="#services">Наши программы</a>
@@ -427,7 +427,7 @@ footer strong { color: rgba(255,255,255,.8); }
       <div class="service-card">
         <div class="service-dot"></div>
         <h3>Групповые курсы</h3>
-        <p>Группы 4–6 человек. Готовимся к přijímačky вместе.</p>
+        <p>Группы 4–6 человек. Готовимся к přijímačkám вместе.</p>
       </div>
       <div class="service-card">
         <div class="service-dot"></div>
@@ -489,10 +489,11 @@ footer strong { color: rgba(255,255,255,.8); }
 <section class="cta-block" id="consult">
   <h2>Запишитесь на бесплатную консультацию</h2>
   <p>Оставьте номер телефона — мы свяжемся с вами в течение 24 часов и ответим на все вопросы.</p>
-  <div class="cta-form">
-    <input type="tel" placeholder="Ваш номер телефона" />
-    <button onclick="alert('Спасибо! Мы свяжемся с вами в течение 24 часов.')">Записаться</button>
-  </div>
+  <form class="cta-form" action="https://formspree.io/veter.taras@gmail.com" method="POST" id="consultForm">
+    <input type="tel" name="phone" placeholder="Ваш номер телефона" required />
+    <button type="submit">Записаться</button>
+  </form>
+  <div id="formSuccess" style="display:none; color:#fff; font-size:16px; margin-top:16px; font-weight:600;">✅ Спасибо! Мы свяжемся с вами в течение 24 часов.</div>
   <div class="cta-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</div>
 </section>
 
@@ -530,7 +531,7 @@ footer strong { color: rgba(255,255,255,.8); }
 <section class="privacy-section" id="privacy">
   <div class="privacy-box">
     <h2>Политика конфиденциальности</h2>
-    <p>Menta vzdělávací centrum, s.r.o. (IČO: 24421898) уважает вашу конфиденциальность и обязуется защищать персональные данные в соответствии с GDPR.</p>
+    <p>Menta school s.r.o. (IČO: 24421898) уважает вашу конфиденциальность и обязуется защищать персональные данные в соответствии с GDPR.</p>
 
     <h3>Какие данные мы собираем</h3>
     <ul>
@@ -547,7 +548,7 @@ footer strong { color: rgba(255,255,255,.8); }
     <p>Вы вправе запросить доступ, исправление или удаление ваших данных. По вопросам защиты данных: <a href="mailto:veter.taras@gmail.com">veter.taras@gmail.com</a></p>
 
     <h3>Zásady ochrany osobních údajů (CZ)</h3>
-    <p>Menta vzdělávací centrum s.r.o. zpracovává osobní údaje výhradně za účelem poskytnutí informací o vzdělávacích službách. Údaje nejsou předávány třetím stranám. Máte právo na přístup, opravu a výmaz svých údajů dle GDPR.</p>
+    <p>Menta school s.r.o. zpracovává osobní údaje výhradně za účelem poskytnutí informací o vzdělávacích službách. Údaje nejsou předávány třetím stranám. Máte právo na přístup, opravu a výmaz svých údajů dle GDPR.</p>
 
     <p style="margin-top:16px; font-size:13px; color:#999;">Последнее обновление: апрель 2025 · Hartigova 2596/211, Žižkov, Praha 3</p>
   </div>
@@ -555,11 +556,31 @@ footer strong { color: rgba(255,255,255,.8); }
 
 <!-- FOOTER -->
 <footer>
-  <strong>Menta vzdělávací centrum, s.r.o.</strong><br>
+  <strong>Menta school s.r.o.</strong><br>
   IČO: 24421898 · Hartigova 2596/211, Žižkov, Praha 3, 130 00<br>
   <a href="tel:+420777093923" style="color:rgba(255,255,255,.5)">+420 777 093 923</a> ·
   <a href="mailto:veter.taras@gmail.com" style="color:rgba(255,255,255,.5)">veter.taras@gmail.com</a>
 </footer>
 
+<script>
+  const form = document.getElementById('consultForm');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        alert('Произошла ошибка. Пожалуйста, позвоните нам напрямую.');
+      }
+    });
+  }
+</script>
 </body>
 </html>
